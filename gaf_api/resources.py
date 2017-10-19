@@ -6,4 +6,3 @@ class Root(object):
         (Allow, Everyone, "view"),
         (Allow, "group:editors", "edit")
     ]
-

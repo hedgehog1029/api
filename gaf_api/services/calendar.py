@@ -42,7 +42,7 @@ def get_days_events():
 
     return {"events": events}
 
-# Test event ID for Dinny's calendar 1p75odn4lh62etgf9sklk7rdr0
+
 def get_event(event_id: str):
     res = service.events().get(calendarId=calendar_id, eventId=event_id).execute()
 
@@ -56,57 +56,3 @@ def get_event(event_id: str):
     }
 
     return event
-
-
-# def add_event(**kwargs):
-#     event = transform_event_keys(kwargs)
-#
-#     service.events().insert(calendarId=calendar_id, body=event).execute()
-#
-#
-# def update_event(event_id: str, **kwargs):
-#     event = transform_event_keys(kwargs)
-#
-#     service.events().update(calendarId=calendar_id, eventId=event_id, body=event).execute()
-#
-#
-# def delete_event(event_id: str):
-#     service.events().delete(calendarId=calendar_id, eventId=event_id).execute()
-#
-#
-# def transform_event_keys(items: dict):
-#     """
-#     Transforms an event from our internal format to the google format.
-#     """
-#     return {
-#         "summary": items.get("name"),
-#         "description": items.get("description", None),
-#         "start": {
-#             "dateTime": items.get("start_time", datetime.now(timezone.utc).isoformat())
-#         },
-#         "end": {
-#             "dateTime": items.get("end_time", None)
-#         }
-#     }
-
-
-# Example event body
-# event = {
-#   'summary': 'Event Name',
-#   'location': 'Our house, in the middle of our street',
-#   'description': 'This will be our bootleg JSON storage',
-#   'start': {
-#     'date': '2017-10-19'    # This creates an all day event, we'll want to use
-#                             # dateTime instead.
-#   },
-#   'end': {
-#     'date': '2017-10-19'
-#   },
-#   'reminders': {
-#     'useDefault': False,
-#     'overrides': [
-#       {'method': 'email', 'minutes': 24 * 60},
-#       {'method': 'popup', 'minutes': 10},
-#     ],
-#   },
-# }
